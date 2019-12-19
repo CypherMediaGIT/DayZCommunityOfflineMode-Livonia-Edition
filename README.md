@@ -48,7 +48,7 @@ You might delete your whole ```Missions``` folder and validate your game files v
 * Click on nothing to deselect the current object.
 * Middle Click to snap to ground (Might not be accurate)
 * Spawn in new items using the object spawner menu that can be found in the toolbar.
-* You can either enter values on the onject editor gui or hover above the value with your mouse and use the scroll wheel to in-/decrease them.
+* You can either enter values on the object editor gui or hover above the value with your mouse and use the scroll wheel to in-/decrease them.
 
 # Teleportation
 * This Version of DayZCommunityOfflineMode Livonia Edition has has the Teleport locations updated to match all the loction found on the Livonia ISurvive Map
