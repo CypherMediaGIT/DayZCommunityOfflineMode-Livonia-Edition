@@ -9,7 +9,7 @@ This is UNOFFICIAL, so don't blame the DayZ development team if this is not work
 
 # Important Warning
 
-You Must Have Livonia Purchased and Installed to play this Mod .. The "bliss" folder need to play Livonia is not included with this download.
+You Must Have Livonia Purchased and Installed to play this Mod .. The "bliss" folder you need to play Livonia is not included with this download.
 To Buy Livonia please visit the steam store https://store.steampowered.com/app/1151700/DayZ_Livonia/
 
 # Info for server owners & mappers
