@@ -16,7 +16,7 @@ To Buy Livonia please visit the steam store https://store.steampowered.com/app/1
 There is now a wiki page available on how to use the community offline mode to spawn map objects on your server or mission you are working on: [Add custom objects to your server or mission](https://github.com/Arkensor/DayZCommunityOfflineMode/wiki/Add-custom-objects-to-your-server-or-mission)
 
 # Installation:
-Download [this](https://github.com/CypherMediaGIT/DayZCOMod-Livonia-Edition/raw/master/DayZCommunityOfflineMode.Enoch.zip) zip archive.  
+Download [this](https://github.com/CypherMediaGIT/DayZCommunityOfflineMode-Livonia-Edition/releases/download/1.0/DayZCommunityOfflineMode.Enoch.zip) zip archive.  
 Make sure you are on the latest `STABLE` or `EXPERIMENTAL` version of the game.
 
 Place the ```Missions``` folder inside your DayZ game directory (```For example: C:\Program Files (x86)\Steam\steamapps\common\DayZ```).  
