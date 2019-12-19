@@ -50,6 +50,10 @@ You might delete your whole ```Missions``` folder and validate your game files v
 * Spawn in new items using the object spawner menu that can be found in the toolbar.
 * You can either enter values on the onject editor gui or hover above the value with your mouse and use the scroll wheel to in-/decrease them.
 
+# Teleportation
+* This Version of DayZCommunityOfflineMode Livonia Edition has has the Teleport locations updated to match all the loction found on the Livonia ISurvive Map
+* https://dayz.ginfo.gg/livonia/
+ 
 # Loot and infected spawn
 By default the "Hive" that is repsonsible for spawning loot and infected is **enabled**. If you want to prevent loot and infected from spawning you need to follow this guide: [Toggle loot and infected spawn](https://github.com/CypherMediaGIT/DayZCommunityOfflineMode-Livonia-Edition/wiki/Toggle-Loot-and-Infected-Spawn)  
 > Disabling the hive increases the game performace.
