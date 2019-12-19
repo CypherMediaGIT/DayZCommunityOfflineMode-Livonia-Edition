@@ -1,4 +1,4 @@
-# DayZCOMode Livonia Edition 1.0
+# DayZCommunityOfflineMode Livonia Edition 1.0
 
 **Thank you to Arkensor for his Mod DayZCommunityOffline Mode**
 **For without his Mod this would not exsit**  
@@ -51,7 +51,7 @@ You might delete your whole ```Missions``` folder and validate your game files v
 * You can either enter values on the onject editor gui or hover above the value with your mouse and use the scroll wheel to in-/decrease them.
 
 # Loot and infected spawn
-By default the "Hive" that is repsonsible for spawning loot and infected is **enabled**. If you want to prevent loot and infected from spawning you need to follow this guide: [Toggle loot and infected spawn](https://github.com/Arkensor/DayZCommunityOfflineMode/wiki/Toggle-loot-and-infected-spawn)  
+By default the "Hive" that is repsonsible for spawning loot and infected is **enabled**. If you want to prevent loot and infected from spawning you need to follow this guide: [Toggle loot and infected spawn](https://github.com/CypherMediaGIT/DayZCommunityOfflineMode-Livonia-Edition/wiki/Toggle-Loot-and-Infected-Spawn)  
 > Disabling the hive increases the game performace.
 
 # Logfiles:
@@ -61,18 +61,11 @@ Locations are stored inside the script.log for now.
 
 You find your logfiles here: ```Press WINDOWS + R  -> Type in %localappdata%/DayZ -> Hit enter```. 
 
-# Future:
-* Adding configurable keybinds
-* Adding a dedicated logfile
-* Adding persitent settings and stats saving
-* Adding a cinematic manager for content creators
-
 # Developers
+* [Cypher](https://github.com/CypherMediaGIT)
 * [Arkensor](https://github.com/Arkensor)
 * [DannyDog](https://github.com/DannyDog)
 * [Jacob_Mango](https://github.com/Jacob-Mango)
-* [Cypher](https://github.com/CypherMediaGIT)
-
 
 # Contributors:
 * [gallexme](https://github.com/gallexme) - Suggestion for the mission based version
