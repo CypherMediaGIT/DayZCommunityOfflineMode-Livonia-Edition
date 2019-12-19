@@ -51,7 +51,7 @@ You might delete your whole ```Missions``` folder and validate your game files v
 * You can either enter values on the object editor gui or hover above the value with your mouse and use the scroll wheel to in-/decrease them.
 
 # Teleportation
-* This Version of DayZCommunityOfflineMode Livonia Edition has has the Teleport locations updated to match all the loction found on the Livonia ISurvive Map
+* This Version of DayZCommunityOfflineMode Livonia Edition has had the Teleport locations updated to match all the loction found on the Livonia ISurvive Map
 * https://dayz.ginfo.gg/livonia/
  
 # Loot and infected spawn
