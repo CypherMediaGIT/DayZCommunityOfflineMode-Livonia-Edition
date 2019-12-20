@@ -16,10 +16,10 @@ To Buy Livonia please visit the steam store https://store.steampowered.com/app/1
 There is now a wiki page available on how to use the community offline mode to spawn map objects on your server or mission you are working on: [Add custom objects to your server or mission](https://github.com/Arkensor/DayZCommunityOfflineMode/wiki/Add-custom-objects-to-your-server-or-mission)
 
 # Installation:
-Download [this](https://github.com/CypherMediaGIT/DayZCommunityOfflineMode-Livonia-Edition/releases/download/1.0/DayZCommunityOfflineMode.Enoch.zip) zip archive.  
+Download [this](https://github.com/CypherMediaGIT/DayZCommunityOfflineMode-Livonia-Edition/releases/download/1.1/DayZCommunityOfflineMode.Enoch.zip) zip archive.  
 Make sure you are on the latest `STABLE` or `EXPERIMENTAL` version of the game.
 
-Place the ```Missions``` folder inside your DayZ game directory (```For example: C:\Program Files (x86)\Steam\steamapps\common\DayZ```).  
+Unpack and Place the ```DayZCommunityOfflineMode.Enoch``` folder inside your ```Missions``` folder in the DayZ game directory (```For example: C:\Program Files (x86)\Steam\steamapps\common\DayZ```).  
 Even though this is not directly bannable by Battleye, just to make sure: Rename your Battleye folder to Battleye.disabled, and rename the DayZ_BE.exe to DayZ_BE.exe.disabled.
 
 Now you now start the script ```DayZ/Missions/DayZCommunityOfflineMode.Enoch/DayZCOfflineMLivonia.bat``` to start the game. You will be loaded directly into the offline mode.  
