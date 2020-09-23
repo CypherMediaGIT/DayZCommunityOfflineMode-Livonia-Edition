@@ -1,4 +1,4 @@
-static string FormatFloat( float value, int decimals ) 
+static string COM_FormatFloat( float value, int decimals ) 
 {
     if ( !value.ToString().Contains(".") ) return value.ToString();
 	
@@ -16,7 +16,7 @@ static string FormatFloat( float value, int decimals )
     return result;
 }
 
-static string VectorToString( vector vec )
+static string COM_VectorToString( vector vec )
 {
     string result = vec.ToString();
     result.Replace( "<", "" );
@@ -26,15 +26,15 @@ static string VectorToString( vector vec )
     return result;
 }
 
-static string VectorToString( vector vec, int decimals ) 
+static string COM_VectorToString( vector vec, int decimals ) 
 {
     string result = "";
-    result = FormatFloat(vec[0], decimals) + "|" + FormatFloat(vec[1], decimals) + "|" + FormatFloat(vec[2], decimals);
+    result = COM_FormatFloat(vec[0], decimals) + "|" + COM_FormatFloat(vec[1], decimals) + "|" + COM_FormatFloat(vec[2], decimals);
 
     return result;
 }
 
-static TStringArray GetChildrenFromBaseClass( string strConfigName, string strBaseClass )
+static TStringArray COM_GetChildrenFromBaseClass( string strConfigName, string strBaseClass )
 {
     string child_name = "";
     int count = GetGame().ConfigGetChildrenCount ( strConfigName );
@@ -53,7 +53,7 @@ static TStringArray GetChildrenFromBaseClass( string strConfigName, string strBa
     return class_names;
 }
 
-static TVectorArray GetSpawnPoints()
+static TVectorArray COM_GetSpawnPoints()
 {
     return { "3175.23 0 6805.85", "11970.94 0 11220.80", "1392.87 0 9664.53", "9768.98 0 8497.65", 
 			 "6641.84 0 11130.16", "554.79 0 1127.55", "5790.12 0 5087.65", "11390.37 0 612.61", 
@@ -69,7 +69,7 @@ static TVectorArray GetSpawnPoints()
 			 "865.18 0 5498.05", "8111.64 0 8693.00" };
 }
 
-static set< Object > GetObjectsAt( vector from, vector to, Object ignore = NULL, float radius = 0.5, Object with = NULL )
+static set< Object > COM_GetObjectsAt( vector from, vector to, Object ignore = NULL, float radius = 0.5, Object with = NULL )
 {
     vector contact_pos;
     vector contact_dir;
@@ -92,7 +92,7 @@ static set< Object > GetObjectsAt( vector from, vector to, Object ignore = NULL,
     return NULL;
 }
 
-static Object GetPointerObject( Object ignore = NULL, float radius = 0.5, Object with = NULL )
+static Object COM_GetPointerObject( Object ignore = NULL, float radius = 0.5, Object with = NULL )
 {
     vector dir = GetGame().GetPointerDirection();
 
@@ -100,7 +100,7 @@ static Object GetPointerObject( Object ignore = NULL, float radius = 0.5, Object
 
     vector to = from + ( dir * 10000 );
 
-    auto objs = GetObjectsAt( from, to, ignore, radius, with );
+    auto objs = COM_GetObjectsAt( from, to, ignore, radius, with );
 
     if( objs.Count() > 0 )
     {
@@ -110,12 +110,12 @@ static Object GetPointerObject( Object ignore = NULL, float radius = 0.5, Object
     return NULL;
 }
 
-static Object GetCursorObject()
+static Object COM_GetCursorObject()
 {
     vector rayStart = GetGame().GetCurrentCameraPosition();
     vector rayEnd = rayStart + GetGame().GetCurrentCameraDirection() * 10000;
 
-    auto objs = GetObjectsAt( rayStart, rayEnd );
+    auto objs = COM_GetObjectsAt( rayStart, rayEnd );
 
     if( objs.Count() > 0 )
     {
@@ -125,9 +125,9 @@ static Object GetCursorObject()
     return NULL;
 }
 
-static vector GetPointerPos()
+static vector COM_GetPointerPos()
 {
-    if ( !GetPlayer() )
+    if ( !COM_GetPB() )
     {
         return "0 0 0";
     }
@@ -143,14 +143,14 @@ static vector GetPointerPos()
     vector hitPos;
     vector hitNormal;
     int hitComponentIndex;
-    DayZPhysics.RaycastRV(rayStart, rayEnd, hitPos, hitNormal, hitComponentIndex, NULL, NULL, GetPlayer());
+    DayZPhysics.RaycastRV(rayStart, rayEnd, hitPos, hitNormal, hitComponentIndex, NULL, NULL, COM_GetPB());
 
     return hitPos;
 }
 
-static vector GetCursorPos()
+static vector COM_GetCursorPos()
 {
-    if ( !GetPlayer() )
+    if ( !COM_GetPB() )
     {
         return "0 0 0";
     }
@@ -160,66 +160,66 @@ static vector GetCursorPos()
     vector hitPos;
     vector hitNormal;
     int hitComponentIndex;
-    DayZPhysics.RaycastRV(rayStart, rayEnd, hitPos, hitNormal, hitComponentIndex, NULL, NULL, GetPlayer());
+    DayZPhysics.RaycastRV(rayStart, rayEnd, hitPos, hitNormal, hitComponentIndex, NULL, NULL, COM_GetPB());
 
     return hitPos;
 }
 
-static void Message( string txt ) 
+static void COM_Message( string txt ) 
 {
-    GetMission().OnEvent(ChatMessageEventTypeID, new ChatMessageEventParams(CCDirect, "", txt, ""));
+    COM_GetMission().OnEvent(ChatMessageEventTypeID, new ChatMessageEventParams(CCDirect, "", txt, ""));
 }
 
-static Weapon GetWeaponInHands()
+static Weapon COM_GetWeaponInHands()
 {
     Weapon weapon_in_hands;
-    if( GetPlayer() && GetPlayer().GetItemInHands() ) Class.CastTo(weapon_in_hands,  GetPlayer().GetItemInHands());
+    if( COM_GetPB() && COM_GetPB().GetItemInHands() ) Class.CastTo(weapon_in_hands,  COM_GetPB().GetItemInHands());
 
     return weapon_in_hands;
 }
 
-static MissionBase GetMission()
+static MissionBase COM_GetMission()
 {
-    return MissionBase.Cast( GetGame().GetMission() );
+    return MissionBase.Cast( GetGame().COM_GetMission() );
 }
 
-static CommunityOfflineClient GetClientMission()
+static CommunityOfflineClient COM_GetClientMission()
 {
-    return CommunityOfflineClient.Cast( GetGame().GetMission() );
+    return CommunityOfflineClient.Cast( GetGame().COM_GetMission() );
 }
 
-static CommunityOfflineServer GetServerMission()
+static CommunityOfflineServer COM_GetServerMission()
 {
-    return CommunityOfflineServer.Cast( GetGame().GetMission() );
+    return CommunityOfflineServer.Cast( GetGame().COM_GetMission() );
 }
 
-static ref PlayerBase GetPlayer()
+static PlayerBase COM_GetPB()
 {
-    return GetGame().GetPlayer();
+    return PlayerBase.Cast( GetGame().GetPlayer() );
 }
 
-static bool SHIFT()
+static bool COM_SHIFT()
 {
     return( ( KeyState( KeyCode.KC_LSHIFT ) > 0 ) || ( KeyState( KeyCode.KC_RSHIFT ) > 0 ) );
 }
 
-static bool CTRL()
+static bool COM_CTRL()
 {
     return( ( KeyState( KeyCode.KC_LCONTROL ) > 0 ) || ( KeyState( KeyCode.KC_RCONTROL ) > 0 ) );
 }
 
-static bool ALT()
+static bool COM_ALT()
 {
     return( ( KeyState( KeyCode.KC_LMENU ) > 0 ) || ( KeyState( KeyCode.KC_RMENU ) > 0 ) );
 }
 
-static bool WINKEY()
+static bool COM_WINKEY()
 {
     return( ( KeyState( KeyCode.KC_LWIN ) > 0 ) || ( KeyState( KeyCode.KC_RWIN ) > 0 ) );
 }
 
 /*
-static Weapon_Base CreateWeapon( PlayerBase oPlayer )
+static Weapon_Base COM_CreateWeapon( PlayerBase oPlayer )
 {
     Weapon_Base oWpn = Weapon_Base.Cast(oPlayer.GetInventory().CreateInInventory( "M4A1_Black" ));
     oWpn.GetInventory().CreateAttachment( "M4_Suppressor" );
@@ -231,7 +231,7 @@ static Weapon_Base CreateWeapon( PlayerBase oPlayer )
 }
 */
 
-static Weapon_Base CreateWeapon( PlayerBase oPlayer, string sWeapon )
+static Weapon_Base COM_CreateWeapon( PlayerBase oPlayer, string sWeapon )
 {
     Weapon_Base oWpn = Weapon_Base.Cast(oPlayer.GetInventory().CreateInInventory( sWeapon ));
     oWpn.GetInventory().CreateAttachment( "PistolSuppressor" );
@@ -241,9 +241,9 @@ static Weapon_Base CreateWeapon( PlayerBase oPlayer, string sWeapon )
     return oWpn;
 }
 
-static PlayerBase CreateCustomDefaultCharacter()
+static PlayerBase COM_CreateCustomDefaultCharacter()
 {
-    PlayerBase oPlayer = PlayerBase.Cast( GetGame().CreatePlayer( NULL, GetGame().CreateRandomPlayer(), GetSpawnPoints().GetRandomElement(), 0, "NONE") );
+    PlayerBase oPlayer = PlayerBase.Cast( GetGame().CreatePlayer( NULL, GetGame().CreateRandomPlayer(), COM_GetSpawnPoints().GetRandomElement(), 0, "NONE") );
 
     oPlayer.GetInventory().CreateInInventory( "AviatorGlasses" );
     oPlayer.GetInventory().CreateInInventory( "MilitaryBeret_UN" );
@@ -254,7 +254,7 @@ static PlayerBase CreateCustomDefaultCharacter()
     oPlayer.GetInventory().CreateInInventory( "AliceBag_Camo" );
     oPlayer.GetInventory().CreateInInventory( "Shovel" );
 
-    Weapon_Base oWpn = CreateWeapon( oPlayer, "UMP45" );
+    Weapon_Base oWpn = COM_CreateWeapon( oPlayer, "UMP45" );
     oPlayer.PredictiveTakeEntityToHands( oWpn );
 
     Magazine oMag = Magazine.Cast( oPlayer.GetInventory().CreateInInventory( "Mag_UMP_25Rnd" ) );
@@ -268,7 +268,7 @@ static PlayerBase CreateCustomDefaultCharacter()
     return oPlayer;
 }
 
-static string FileAttributeToString( FileAttr attr )
+static string COM_FileAttributeToString( FileAttr attr )
 {
     string fileType = "";
     if ( attr & FileAttr.DIRECTORY )
@@ -290,7 +290,7 @@ static string FileAttributeToString( FileAttr attr )
     return fileType;
 }
 
-static vector SnapToGround(vector pos)
+static vector COM_SnapToGround(vector pos)
 {
     float pos_x = pos[0];
     float pos_z = pos[2];
@@ -301,11 +301,11 @@ static vector SnapToGround(vector pos)
     return tmp_pos;
 }
 
-static bool m_GodMode; // move these to player saves? Edit: Jacob says "yes"
-static bool m_OldAiming;
-static bool bc_Visible;
+static bool m_COM_GodMode; // move these to player saves? Edit: Jacob says "yes"
+static bool m_COM_OldAiming;
+static bool COM_bc_Visible;
 
-static void SnapToGroundNew( Object object ) 
+static void COM_SnapToGroundNew( Object object ) 
 {
     vector pos = object.GetPosition();
     pos[1] = GetGame().SurfaceY(pos[0], pos[2]);
@@ -322,10 +322,10 @@ static void SnapToGroundNew( Object object )
 
     object.SetPosition(pos);
 
-    ForceTargetCollisionUpdate( object );
+    COM_ForceTargetCollisionUpdate( object );
 }
 
-static void ForceTargetCollisionUpdate( Object oObj )
+static void COM_ForceTargetCollisionUpdate( Object oObj )
 {
     if ( !oObj ) return;
 
@@ -336,7 +336,7 @@ static void ForceTargetCollisionUpdate( Object oObj )
     oObj.SetOrientation( roll );
 }
 
-static void ToggleCursor()
+static void COM_ToggleCursor()
 {
     if ( GetGame().GetInput().HasGameFocus( INPUT_DEVICE_MOUSE ) )
     {
@@ -359,7 +359,7 @@ static void ToggleCursor()
      4 - number
      5 - end of line -> TODO
 */
-static bool CheckStringType( string str, int type ) 
+static bool COM_CheckStringType( string str, int type ) 
 {
     for(int i = 0; i<str.Length(); i++ ) 
     {
@@ -371,7 +371,7 @@ static bool CheckStringType( string str, int type )
     return false;
 }
 
-string GetRandomChildFromBaseClass( string strConfigName, string strBaseClass, int minScope = -1 )
+string COM_GetRandomChildFromBaseClass( string strConfigName, string strBaseClass, int minScope = -1 )
 {
     string child_name = "";
     int count = GetGame().ConfigGetChildrenCount ( strConfigName );
@@ -379,7 +379,7 @@ string GetRandomChildFromBaseClass( string strConfigName, string strBaseClass, i
 
     for ( int p = 0; p < count; p++ )
     {
-        GetGame().ConfigGetChildName ( strConfigName, p, child_name );
+        GetGame().ConfigGetChildName( strConfigName, p, child_name );
 
         if( ( minScope != -1 ) && ( GetGame().ConfigGetInt( strConfigName + " " + child_name + " scope" ) < minScope ) ) continue;
 
